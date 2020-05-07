@@ -1,0 +1,28 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+metadata:
+  name: ComplexK8S
+build:
+  local:
+    push: false
+  artifacts:
+    - image: agamblin/multi-client
+      context: client
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        infer:
+          - '**/*.js'
+          - '**/*.css'
+          - '**/*.html'
+    - image: agamblin/multi-server
+      context: server
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        infer:
+          - '**/*.js'
+deploy:
+  kubectl:
+    manifests:
+      - k8s/*
