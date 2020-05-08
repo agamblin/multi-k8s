@@ -11,6 +11,6 @@ docker push agamblin/multi-server:$SHA
 docker push agamblin/multi-worker:$SHA
 
 kubectl apply -f k8s
-kuebctl set image deployments/server-deployment server=agamblin/multi-server:$SHA
-kuebctl set image deployments/client-deployment client=agamblin/multi-client:$SHA
-kuebctl set image deployments/worker-deployment worker=agamblin/multi-worker:$SHA
+kubectl set image deployments/server-deployment server=agamblin/multi-server:$SHA
+kubectl set image deployments/client-deployment client=agamblin/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=agamblin/multi-worker:$SHA
