@@ -15,9 +15,5 @@ spec:
       containers:
         - name: client
           image: agamblin/multi-client
-          resources:
-            limits:
-              memory: '512Mi'
-              cpu: '500m'
           ports:
             - containerPort: 3000
